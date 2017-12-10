@@ -26,7 +26,7 @@ var marker;
 
 function onDeviceReady()
 {
-	console.log("onDeviceReady");
+	console.log("onDeviceReady | LANCEMENT DE L'APPLICATION");
 	
 /*	var parentElement = document.getElementById("button");
 	var listeningElement = parentElement.querySelector(".listening");
