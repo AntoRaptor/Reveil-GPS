@@ -16,8 +16,7 @@ var latitude;
 var longitude;
 var latMarqueur;
 var lngMarqueur;
-var booleen = false;
-var marker;
+
 
 
 /**************************************/
@@ -58,12 +57,12 @@ function onMapReady() {
 	  button.addEventListener("click", onBtnClicked, false);
 	  map.addEventListener(plugin.google.maps.event.MAP_CLICK, onMapClick);
 	  
-	  zoomDeDepart();
+	  zoomCurseur();
 	}
 
 
 
-function zoomDeDepart () {
+function zoomCurseur () {
 	console.log("zoomDeDepart");
 		
 		//navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -116,7 +115,8 @@ function creationMarqueur(lat, lng){
 		            marker.remove();
 		        });
 		   		marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
-		   		alert("VALIDE");
+				   alert("VALIDE");
+				   document.location.href="validation.html?cle1="+latMarqueur+"&cle2="+lngMarqueur;
 			  });
 		   })
 
