@@ -51,7 +51,7 @@ function onTest() {
 
 	var idDemande = prompt("Entrez un id");
 	tab = storage.getItem(idDemande);
-	var affiche = "id : " + tab[0] + " / Nom : " + tab[1] + " / Lat : " + tab[2] + " / Lng : " + tab[3];
+	// var affiche = "id : " + tab[0] + " / Nom : " + tab[1] + " / Lat : " + tab[2] + " / Lng : " + tab[3];
 	alert(tab);
 }
 
