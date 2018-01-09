@@ -57,12 +57,12 @@ function onMapReady() {
 	  button.addEventListener("click", onBtnClicked, false);
 	  map.addEventListener(plugin.google.maps.event.MAP_CLICK, onMapClick);
 	  
-	  zoomCurseur();
+	  zoomDeDepart();
 	}
 
 
 
-function zoomCurseur () {
+function zoomDeDepart () {
 	console.log("zoomDeDepart");
 		
 		//navigator.geolocation.getCurrentPosition(onSuccess, onError);
