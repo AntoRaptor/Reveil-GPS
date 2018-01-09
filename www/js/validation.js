@@ -16,7 +16,15 @@ var map;
 var latMarqueur;
 var lngMarqueur;
 
+var storage = window.localStorage;
+// storage.clear();
 
+var id; // id de l'alarme
+
+
+// var booleen = false;
+
+//var storage = window.localStorage; // LOCAL STORAGE
 
 /**************************************/
 /** Functions                         */
@@ -24,6 +32,8 @@ var lngMarqueur;
 
 var paramsUrl = function() {	
 	
+	// alert("PASSAGE DANS LA FONCTION PARAMSURL");
+
 	var t = location.search.substring(1).split('&');
 	var f = [];
 	for (var i=0; i<t.length; i++){
@@ -61,16 +71,19 @@ function onDeviceReady()
 
 function onMapReady() {
 	
-	  console.log("onMapReady");
+	slider.addEventListener("change", onSlider, false);
+	
+	console.log("onMapReady");
 	  
-	  map.setMapTypeId(plugin.google.maps.MapTypeId.HYBRID);
+	map.setMapTypeId(plugin.google.maps.MapTypeId.HYBRID);
 	  
-	  zoomCurseur();
+	zoomCurseur();
 	}
 
 
 
 function zoomCurseur () {
+	
 	console.log("zoomCurseur");
 		
 		//navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -83,6 +96,56 @@ function zoomCurseur () {
 			function onLocationError( error_msg ) {
 			    alert( error_msg );
 			}
+}
+
+function onSlider() {
+	console.log("<<<<<<<<<< Entre dans onSlider ! >>>>>>>>>>")
+	var valeurSlider = document.getElementById("slider").value;
+	document.getElementById("valeur-slider").innerHTML = "Distance = " + valeurSlider + " mètres";
+
+	 // BOUTON VALIDER
+	validationcercle.addEventListener("click", onValidationClicked, false);
+
+	map.addCircle({
+	  'center': {"lat": latMarqueur, "lng": lngMarqueur},
+	  'radius': document.getElementById("slider").value,
+	  'strokeColor' : '#AA00FF',
+	  'strokeWidth': 5,
+	  'fillColor' : '#880000'
+	});
+
+/* 	if (map.circle) {
+		console.log("<<<<<<<<<< Suppression >>>>>>>>>>");
+		map.circle.remove();
+	} */
+}
+
+function onValidationClicked() {
+
+	if (storage.getItem("sauveID")) {
+		id = storage.getItem("sauveID");
+	}
+	else {
+		id = 0;
+		alert(typeof id);
+	}
+
+	var valeurSlider = document.getElementById("slider").value;
+
+	// alert(valeurSlider);
+	id = 1 + id; // id += 1 ou id = id + 1
+	alert(id);
+
+	var nomAlarme = prompt("Entrez un nom :");
+
+	alarme = [id, nomAlarme, valeurSlider, latMarqueur, lngMarqueur];
+	storage.setItem("sauveID", id);
+	storage.setItem(id, alarme);
+
+	document.location.href="index.html";
+
+/* 	var idDemande = prompt("Entrez un id");
+	alert(storage.getItem(idDemande)); */
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

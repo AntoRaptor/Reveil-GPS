@@ -48,13 +48,13 @@ function onDeviceReady()
 
 function onMapReady() {
 	
-	  console.log("onMapReady");
+	  console.log("onMapReady | MAP READY");
 	  
 	  map.setMapTypeId(plugin.google.maps.MapTypeId.HYBRID);
 	  
 	  
 	  var button = document.getElementById("button");
-	  button.addEventListener("click", onBtnClicked, false);
+	  // button.addEventListener("click", onBtnClicked, false);
 	  map.addEventListener(plugin.google.maps.event.MAP_CLICK, onMapClick);
 	  
 	  zoomDeDepart();
@@ -115,14 +115,16 @@ function creationMarqueur(lat, lng){
 		            marker.remove();
 		        });
 		   		marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
-				   alert("VALIDE");
-				   document.location.href="validation.html?cle1="+latMarqueur+"&cle2="+lngMarqueur;
+					var r = confirm("Voulez-vous valider ?");
+					if (r == true) {
+						document.location.href="validation.html?cle1="+lat+"&cle2="+lng;
+					}
 			  });
 		   })
 
 }
 
-function onBtnClicked() {
+/* function onBtnClicked() {
     var option = {
         enableHighAccuracy: true      // Force GPS
     };
@@ -144,7 +146,7 @@ function onBtnClicked() {
     function onLocationError( error_msg ) {
         alert( error_msg );
     }
-}
+} */
 
 
 

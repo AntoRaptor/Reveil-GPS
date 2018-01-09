@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <!-- Page styles -->
@@ -45,21 +45,16 @@
         </nav>
       </div>
       <div class="android-content mdl-layout__content">
-          <div style="width:100%;height:400px;" id="map_canvas"></div>
+            <input id="testlocalstorage" type="button" value="TEST LOCALSTORAGE">
+            <input id="clearlocalstorage" type="button" value="CLEAR">
+          <!-- <div style="width:100%;height:400px;" id="map_canvas"></div> -->
       </div>
 
-      <div id="div-slider">
-          <!-- <input classe="slider" type="button" value="-"> -->
+      <!-- <div id="div-slider">
           <div id="valeur-slider"></div>
           <input class="mdl-slider mdl-js-slider" id="slider" type="range" min="100" max="500">
-          <!-- <button id="validationcercle" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Valider
-          </button> -->
-
           <input id="validationcercle" type="button" value="Valider">
-
-          <!-- <input classe="slider" type="button" value="+"> -->
-      </div>
+      </div> -->
 
     </div>
     <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
