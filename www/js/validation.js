@@ -78,7 +78,7 @@ function onMapReady() {
 	map.setMapTypeId(plugin.google.maps.MapTypeId.HYBRID);
 	  
 	zoomCurseur();
-	}
+}
 
 
 
@@ -127,14 +127,14 @@ function onValidationClicked() {
 	}
 	else {
 		id = 0;
-		alert(typeof id);
+		// alert(typeof id);
 	}
 
 	var valeurSlider = document.getElementById("slider").value;
 
 	// alert(valeurSlider);
 	id = 1 + id; // id += 1 ou id = id + 1
-	alert(id);
+	// alert(id);
 
 	var nomAlarme = prompt("Entrez un nom :");
 

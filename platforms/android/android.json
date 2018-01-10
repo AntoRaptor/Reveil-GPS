@@ -59,6 +59,10 @@
             {
               "xml": "<feature name=\"MarkerCluster\"><param name=\"android-package\" value=\"plugin.google.maps.PluginMarkerCluster\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -104,6 +108,12 @@
               "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
               "count": 1
             }
+          ],
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            }
           ]
         }
       }
@@ -115,6 +125,9 @@
     },
     "cordova-plugin-googlemaps": {
       "API_KEY_FOR_ANDROID": "AIzaSyC8t2kpiQ4LCaITMUPzbJGOYjQajHwhyCc",
+      "PACKAGE_NAME": "com.antoraptor.reveilgps"
+    },
+    "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.antoraptor.reveilgps"
     }
   },
@@ -289,10 +302,28 @@
       "clobbers": [
         "plugin.google.maps"
       ]
+    },
+    {
+      "id": "cordova-plugin-network-information.network",
+      "file": "plugins/cordova-plugin-network-information/www/network.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "navigator.connection",
+        "navigator.network.connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.Connection",
+      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "Connection"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-googlemaps": "2.1.1"
+    "cordova-plugin-googlemaps": "2.1.1",
+    "cordova-plugin-network-information": "2.0.1"
   }
 }

@@ -42,6 +42,9 @@
     <feature name="MarkerCluster">
         <param name="android-package" value="plugin.google.maps.PluginMarkerCluster" />
     </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
     <name>ReveilGPS</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

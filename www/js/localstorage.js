@@ -47,7 +47,7 @@ function onTest() {
 		id = 0;
 	}
 
-	alert("ID actuel = " + id);
+	alert("dernier ID = " + id);
 
 	var idDemande = prompt("Entrez un id");
 	tab = storage.getItem(idDemande);
@@ -58,7 +58,7 @@ function onTest() {
 function onClear() {
 	console.log("onClear");
 	storage.clear();
-	alert("storage cleared !");
+	alert("storage nettoyé !");
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

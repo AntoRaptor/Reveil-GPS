@@ -13,6 +13,9 @@
     "cordova-plugin-googlemaps": {
       "API_KEY_FOR_ANDROID": "AIzaSyC8t2kpiQ4LCaITMUPzbJGOYjQajHwhyCc",
       "PACKAGE_NAME": "com.antoraptor.reveilgps"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.antoraptor.reveilgps"
     }
   },
   "dependent_plugins": {}

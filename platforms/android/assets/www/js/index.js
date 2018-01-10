@@ -17,7 +17,9 @@ var longitude;
 var latMarqueur;
 var lngMarqueur;
 
+var storage = window.localStorage;
 
+var i = 1;
 
 /**************************************/
 /** Functions                         */
@@ -34,6 +36,21 @@ function onDeviceReady()
 /*	listeningElement.style.display = "none";
 	receivedElement.style.display = "block";*/
 	
+
+
+	/* while (checkConnection() == "No network connection") {
+		alert("Vous devez êtres connecté à Internet");
+		document.location.href="index.html";
+		if (checkConnection() != "No network connection") {
+			alert("Connecté !");
+			break;
+		};
+	} */
+
+	if (checkConnection() == "No network connection") {
+		alert("Vous devez êtres connecté à Internet");
+		document.location.href="index.html";
+	}
 	
 	//Google Maps
 	var div = document.getElementById("map_canvas");
@@ -42,6 +59,23 @@ function onDeviceReady()
 	// Wait until the map is ready status.
 	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 	
+}
+
+function checkConnection() {
+    var networkState = navigator.connection.type;
+ 
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+ 
+	// alert('Connection type: ' + states[networkState]);
+	return(states[networkState]);
 }
 
 //Google Maps
@@ -56,6 +90,22 @@ function onMapReady() {
 	  var button = document.getElementById("button");
 	  // button.addEventListener("click", onBtnClicked, false);
 	  map.addEventListener(plugin.google.maps.event.MAP_CLICK, onMapClick);
+
+	  /* while (i < (storage.getItem("sauveID")) + 1) {
+		tab = storage.getItem(i);
+		alert(tab);
+		map.addMarker({
+			'position': {"lat": tab[4], "lng": tab[5]},
+			icon: 'blue',
+			'title': tab,
+			disableAutoPan: false
+		  },function(marker) {
+				    marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
+					marker.showInfoWindow();
+				   });
+			  })
+		i = i + 1;
+	  } */
 	  
 	  zoomDeDepart();
 	}
